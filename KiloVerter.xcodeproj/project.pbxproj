@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					C5B46A1F1E8B032100D61D3E = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = BPG2NHAB74;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -260,6 +261,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BPG2NHAB74;
 				INFOPLIST_FILE = KiloVerter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KiloVerter;
@@ -272,6 +274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BPG2NHAB74;
 				INFOPLIST_FILE = KiloVerter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KiloVerter;
@@ -299,6 +302,7 @@
 				C5B46A341E8B032200D61D3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
