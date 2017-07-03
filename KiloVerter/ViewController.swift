@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     var btnOn15 = false
     var btnNoBarTog = true
     var barWeight = 0.0
+    var convFromLBS = true
+    var convFromKG = false
     
     //Labels for num of plates
     
@@ -46,11 +48,20 @@ class ViewController: UIViewController {
         btnOn15 = true
         btnOn20 = false
     }
-    
-    @IBAction func btnNoBar(_ sender: UIButton) {
-        btnNoBarTog = true
-        btnOn15 = false
-        btnOn20 = false
+
+    @IBAction func lbsBtnPressed(_ sender: Any) {
+        convFromLBS = true
+        convFromKG = false
+        //change text colors on selection
+        lbsBtn.setTitleColor(UIColor(red:0.93, green:0.48, blue:0.47, alpha:1.0), for: .normal)
+        kgBtn.setTitleColor(UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0), for: .normal)
+    }
+    @IBAction func kgBtnPressed(_ sender: Any) {
+        convFromLBS = false
+        convFromKG = true
+        //change text colors on selection
+        kgBtn.setTitleColor(UIColor(red:0.93, green:0.48, blue:0.47, alpha:1.0), for: .normal)
+        lbsBtn.setTitleColor(UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0), for: .normal)
     }
     
     @IBOutlet weak var lbl25: UILabel!
@@ -72,6 +83,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var lbl5: UILabel!
     
     @IBOutlet weak var lbl0p5: UILabel!
+    
+    @IBOutlet weak var lbsBtn: UIButton!
+    
+    @IBOutlet weak var kgBtn: UIButton!
     
     //Steppers for numPlates
     
