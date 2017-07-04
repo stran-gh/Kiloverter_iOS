@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("The user entered a weight of \(toConv)")
             straightConvert(toBeConv:toConv )
         } else {
-            print("Not a valid number: \(straightConvAmt.text!)")
+            convOutcome.text = "Not a valid number!"
         }
     }
     
