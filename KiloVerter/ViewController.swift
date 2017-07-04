@@ -22,12 +22,13 @@ class ViewController: UIViewController {
     var amt1p5 = 0.0
     var amt1p0 = 0.0
     var amt0p5 = 0.0
-    var btnOn20 = false
+    var btnOn20 = true
     var btnOn15 = false
-    var btnNoBarTog = true
+    var btnNoBarTog = false
     var barWeight = 0.0
     var convFromLBS = true
     var convFromKG = false
+    
     
     //Labels for num of plates
     
@@ -37,16 +38,37 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var btn20: UIButton!
     
+    @IBOutlet weak var btn15: UIButton!
+   
+    
+    @IBOutlet weak var straightConvAmt: UITextField!
+    
+    @IBOutlet weak var convOutcome: UILabel!
+    
+    @IBAction func straightConvBtn(_ sender: UIButton) {
+        if let toConv = Double(straightConvAmt.text!) {
+            print("The user entered a weight of \(toConv)")
+            straightConvert(toBeConv:toConv )
+        } else {
+            print("Not a valid number: \(straightConvAmt.text!)")
+        }
+    }
+    
+    
     @IBAction func btn20Pressed(_ sender: UIButton) {
         btnNoBarTog = false
         btnOn15 = false
         btnOn20 = true
+        btn20.backgroundColor = UIColor(red:1.00, green:1.00, blue:0.59, alpha:1.0)
+        btn15.backgroundColor = UIColor.white
     }
     
     @IBAction func btn15Pressed(_ sender: UIButton) {
         btnNoBarTog = false
         btnOn15 = true
         btnOn20 = false
+        btn15.backgroundColor = UIColor(red:1.00, green:1.00, blue:0.59, alpha:1.0)
+        btn20.backgroundColor = UIColor.white
     }
 
     @IBAction func lbsBtnPressed(_ sender: Any) {
@@ -230,6 +252,24 @@ class ViewController: UIViewController {
         lbl0p5.text = "x" + String(amt0p5)
         fromkg.text = String(0.0)
         tolbs.text = String(0.0)
+        btn20.backgroundColor = UIColor.white
+        btn15.backgroundColor = UIColor.white
+    }
+    
+    func straightConvert(toBeConv: Double){
+        var output: String
+        if convFromLBS{
+            toAmt = ((toBeConv/2.204) * 100)
+            toAmt.round()
+            toAmt /= 100
+            output = String(toAmt) + " kilograms"
+        }
+        else{
+            //We are converting from kilograms
+            toAmt = toBeConv * 2.204
+            output = String(toAmt) + " pounds"
+        }
+        convOutcome.text = output
     }
     
     override func viewDidLoad() {
@@ -237,6 +277,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         fromkg.isHidden = true
         tolbs.isHidden = true
+        btn20.backgroundColor = UIColor(red:1.00, green:1.00, blue:0.59, alpha:1.0)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
