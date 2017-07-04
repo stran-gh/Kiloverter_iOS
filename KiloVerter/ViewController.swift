@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     var fromTot = 0.0
     var toAmt = 0.0
@@ -278,15 +278,25 @@ class ViewController: UIViewController {
         fromkg.isHidden = true
         tolbs.isHidden = true
         btn20.backgroundColor = UIColor(red:1.00, green:1.00, blue:0.59, alpha:1.0)
-        
-        
+        self.straightConvAmt.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //Hide keyboard when touching outside
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    //Hide keyboard when return is pressed
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        straightConvAmt.resignFirstResponder()
+        return(true)
+    }
 
+    
 
 }
 
